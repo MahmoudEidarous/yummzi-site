@@ -4,39 +4,117 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Yummzi: meal plans on your budget</title>
-<meta name="description" content="Yummzi plans a week of meals around your budget and shows the grocery total for your store before you shop.">
+<meta name="description" content="Yummzi plans a week of meals around what you can spend and shows the grocery total for your store before you shop. For iPhone.">
+<meta name="theme-color" content="#FAF8F4">
+<meta property="og:title" content="Yummzi: a week of meals, priced before you shop">
+<meta property="og:description" content="Plan a week of meals around your budget and see the grocery total for your store before you shop.">
+<meta property="og:image" content="https://mahmoudeidarous.github.io/yummzi-site/assets/og.png">
+<meta property="og:url" content="https://mahmoudeidarous.github.io/yummzi-site/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/icon.png">
 <link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 <div class="checks"></div>
-<header>
-  <a class="brand" href="./"><img class="mascot" src="assets/riggy.png" alt=""><img class="word" src="assets/wordmark.png" alt="Yummzi"></a>
-  <nav><a href="./" aria-current="page">Home</a><a href="support/">Support</a><a href="privacy/">Privacy</a></nav>
+<header class="bar">
+  <a class="brand" href="./"><img class="mascot" src="assets/riggy-small.png" alt="" width="35" height="46"><img class="word" src="assets/wordmark.png" alt="Yummzi" width="104" height="30"></a>
+  <nav aria-label="Site"><a href="support/">Support</a><a href="privacy/">Privacy</a></nav>
 </header>
+
 <main>
   <section class="hero">
     <div>
-      <h1>Meals for the week.<br><span class="red">On your budget.</span></h1>
-      <p>Yummzi plans breakfast, lunch and dinner for seven days around what you can spend, then shows the grocery total for your store before you shop.</p>
-      <p class="muted">For iPhone. Coming soon to the App Store.</p>
+      <h1>A week of meals, priced before you shop.</h1>
+      <p class="lede">Yummzi plans breakfast, lunch and dinner around what you can spend, then shows what the groceries will cost at the store you use.</p>
+      <span class="soon"><img src="assets/icon.png" alt="" width="34" height="34">Coming soon to the App Store</span>
+      <p class="fine">For iPhone. Free to download; membership starts with a 3-day free trial.</p>
     </div>
-    <img src="assets/riggy.png" alt="Riggy, the Yummzi chef">
+
+    <div class="stage">
+      <figure class="phone">
+        <img src="assets/shots/home.webp" alt="Yummzi's home screen: tonight's dinner, teriyaki chicken rice bowls, and the week's groceries at $192.57 of a $200 budget." width="600" height="1301" fetchpriority="high">
+      </figure>
+      <div class="receipt" role="img" aria-label="An example week's grocery receipt: 55 items, $192.57 against a $200 budget, $7.43 left over.">
+        <div class="paper">
+          <div class="head"><strong>Groceries for the week</strong><span>Walmart, Atlanta, for 4 people</span></div>
+          <dl>
+            <dt>Yellow onions, 3</dt><dd>2.46</dd>
+            <dt>Roma tomatoes, 6</dt><dd>1.74</dd>
+            <dt>Green onions, 3</dt><dd>2.31</dd>
+            <dt>Potatoes, 2 bags</dt><dd>5.78</dd>
+            <dt class="x">Limes, 4</dt><dd class="x">1.36</dd>
+            <dt class="x">Fresh ginger</dt><dd class="x">0.73</dd>
+            <dt>Cherry tomatoes</dt><dd>2.44</dd>
+            <dt>Fresh basil</dt><dd>1.95</dd>
+            <dt class="more">and the rest of the list</dt>
+            <dt class="rule"></dt>
+            <dt class="total">Total, 55 items</dt><dd class="total">$192.57</dd>
+            <dt>Your budget</dt><dd>$200.00</dd>
+            <dt class="left">Left over</dt><dd class="left">$7.43</dd>
+          </dl>
+          <p class="note">Estimated prices for your store</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <h2>Priced for your store</h2>
-  <p>Pick where you shop: more than 28,000 US supermarkets across 100+ chains, plus stores in Canada and the UK. Every recipe and the whole grocery list carry an estimated price.</p>
+  <section class="steps" aria-labelledby="how">
+    <h2 id="how">How a week comes together</h2>
+    <p>Tell Yummzi who you cook for, what you can spend and how much time you have. It does the rest.</p>
+    <ol>
+      <li>
+        <h3>Pick your store</h3>
+        <p>Choose from more than 28,000 US supermarkets, or stores in Canada and the UK. Prices follow the store you pick.</p>
+        <figure class="phone"><img src="assets/shots/store.webp" alt="Choosing a store: 49 stores near Atlanta, from Publix to Kroger." width="600" height="1301" loading="lazy"></figure>
+      </li>
+      <li>
+        <h3>Get a week that fits</h3>
+        <p>Twenty-one meals from more than 300 recipes, around your budget, diet and time. Swap any meal and see what it does to the bill.</p>
+        <figure class="phone"><img src="assets/shots/swap.webp" alt="Swapping Friday's dinner, with how much each option saves." width="600" height="1301" loading="lazy"></figure>
+      </li>
+      <li>
+        <h3>Shop one list</h3>
+        <p>Everything the week needs, sorted by aisle with a price on each item. Share it so anyone at home can tick things off.</p>
+        <figure class="phone"><img src="assets/shots/groceries.webp" alt="The grocery list: 55 items, about $192.57, sorted by aisle." width="600" height="1301" loading="lazy"></figure>
+      </li>
+      <li>
+        <h3>Cook it step by step</h3>
+        <p>Cook mode gives amounts for your table, built-in timers and what to look for at each step.</p>
+        <figure class="phone"><img src="assets/shots/cook.webp" alt="Cook mode for teriyaki chicken rice bowls: 23 minutes, 7 steps, 5 timers." width="600" height="1301" loading="lazy"></figure>
+      </li>
+    </ol>
+  </section>
 
-  <h2>Change anything</h2>
-  <p>Swap a meal and see what it does to the bill. Rebuild one day or the whole week in a tap, or ask Riggy, your kitchen helper, to make the week cheaper.</p>
+  <section class="riggy" aria-labelledby="riggy">
+    <div class="inner">
+      <img class="mascot" src="assets/riggy.webp" alt="Riggy, a cartoon rigatoni chef in a checked hat" width="398" height="520" loading="lazy">
+      <div>
+        <h2 id="riggy">Riggy trims the bill</h2>
+        <p>Ask your kitchen helper to make the week cheaper, quicker or higher in protein. He drafts the change, and you apply it with one tap.</p>
+        <ul class="asks" aria-label="Things you can ask Riggy">
+          <li>Make this week $20 cheaper</li>
+          <li>Something quick tonight</li>
+          <li>More protein, same budget</li>
+        </ul>
+      </div>
+      <figure class="phone shot"><img src="assets/shots/riggy.webp" alt="Riggy drafting a week that is $14.56 cheaper, with Apply to my week." width="600" height="1301" loading="lazy"></figure>
+    </div>
+  </section>
 
-  <h2>Cook it step by step</h2>
-  <p>Cook mode walks you through each recipe with amounts for your table and timers.</p>
-
-  <div class="card">
-    <strong>Questions?</strong> Visit <a href="support/">Support</a>. Read how we handle your data in our <a href="privacy/">Privacy Policy</a>.
-  </div>
+  <section class="closing">
+    <h2>Dinner sorted, bill known.</h2>
+    <p>Yummzi is coming to iPhone soon, in the US, Canada and the UK.</p>
+    <span class="soon"><img src="assets/icon.png" alt="" width="34" height="34">Coming soon to the App Store</span>
+  </section>
 </main>
-<footer>© 2026 Mahmoud Aidaros. Yummzi is not affiliated with any store shown in the app; store names and logos belong to their owners.</footer>
+
+<footer>
+  <div class="inner">
+    <nav aria-label="Footer"><a href="support/">Support</a><a href="privacy/">Privacy</a></nav>
+    <p>© 2026 Mahmoud Aidaros. Prices in Yummzi are estimates. Yummzi isn't affiliated with any store it shows; store names belong to their owners.</p>
+  </div>
+</footer>
 </body>
 </html>

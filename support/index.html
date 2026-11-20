@@ -4,16 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Yummzi Support</title>
+<meta name="theme-color" content="#FAF8F4">
+<link rel="apple-touch-icon" href="../assets/icon.png">
 <link rel="icon" href="../assets/favicon.png">
 <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
 <div class="checks"></div>
-<header>
-  <a class="brand" href="../"><img class="mascot" src="../assets/riggy.png" alt=""><img class="word" src="../assets/wordmark.png" alt="Yummzi"></a>
-  <nav><a href="../">Home</a><a href="./" aria-current="page">Support</a><a href="../privacy/">Privacy</a></nav>
+<header class="bar">
+  <a class="brand" href="../"><img class="mascot" src="../assets/riggy-small.png" alt="" width="35" height="46"><img class="word" src="../assets/wordmark.png" alt="Yummzi" width="104" height="30"></a>
+  <nav aria-label="Site"><a href="../support/" aria-current="page">Support</a><a href="../privacy/">Privacy</a></nav>
 </header>
-<main>
+<main class="page">
   <h1>Support</h1>
   <p>Have a question, found a problem, or want to delete your data? Send us a message and we will reply by email, usually within two working days.</p>
 
@@ -47,7 +49,12 @@
   <h3>Are the prices exact?</h3>
   <p>No. Grocery prices are estimates based on your store and region, so the total at the till can differ.</p>
 </main>
-<footer>© 2026 Mahmoud Aidaros</footer>
+<footer>
+  <div class="inner">
+    <nav aria-label="Footer"><a href="../">Home</a><a href="../support/">Support</a><a href="../privacy/">Privacy</a></nav>
+    <p>© 2026 Mahmoud Aidaros. Prices in Yummzi are estimates. Yummzi isn't affiliated with any store it shows; store names belong to their owners.</p>
+  </div>
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.0/dist/umd/supabase.min.js"></script>
 <script>
   // Messages go to the same inbox as in-app suggestions. The key below is the public,
