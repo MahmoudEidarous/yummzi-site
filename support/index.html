@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yummzi Support</title>
+<link rel="icon" href="../assets/favicon.png">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<div class="checks"></div>
+<header>
+  <a class="brand" href="../"><img class="mascot" src="../assets/riggy.png" alt=""><img class="word" src="../assets/wordmark.png" alt="Yummzi"></a>
+  <nav><a href="../">Home</a><a href="./" aria-current="page">Support</a><a href="../privacy/">Privacy</a></nav>
+</header>
+<main>
+  <h1>Support</h1>
+  <p>Have a question, found a problem, or want to delete your data? Send us a message and we will reply by email, usually within two working days.</p>
+
+  <div class="card">
+    <form id="contact">
+      <label for="email">Your email</label>
+      <input id="email" name="email" type="email" required autocomplete="email" maxlength="120" placeholder="you@example.com">
+      <label for="topic">Topic</label>
+      <select id="topic" name="topic">
+        <option value="problem">A problem with the app</option>
+        <option value="problem">Subscription or billing</option>
+        <option value="problem">Delete my data</option>
+        <option value="idea">An idea for Yummzi</option>
+      </select>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required minlength="10" maxlength="800" placeholder="Tell us what happened, and which iPhone and iOS version you use."></textarea>
+      <button type="submit" id="send">Send message</button>
+      <p class="note" id="status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+
+  <h2>Common questions</h2>
+  <h3>How do I cancel my subscription?</h3>
+  <p>Subscriptions are managed by Apple. On your iPhone, open <strong>Settings › your name › Subscriptions › Yummzi</strong> and tap Cancel Subscription. To cancel during the 3-day free trial without being charged, cancel at least 24 hours before it ends.</p>
+  <h3>How do I get a refund?</h3>
+  <p>Apple handles refunds. Request one at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+  <h3>I bought a membership but it isn't showing.</h3>
+  <p>In the app, open <strong>Settings › Yummzi membership</strong> and tap <strong>Restore</strong>, signed in with the same Apple Account you paid with.</p>
+  <h3>How do I delete my account?</h3>
+  <p>In the app, open <strong>Settings › Delete account</strong>. Your account and everything synced to it are deleted. See our <a href="../privacy/">Privacy Policy</a> for details.</p>
+  <h3>Are the prices exact?</h3>
+  <p>No. Grocery prices are estimates based on your store and region, so the total at the till can differ.</p>
+</main>
+<footer>© 2026 Mahmoud Aidaros</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.119.0/dist/umd/supabase.min.js"></script>
+<script>
+  // Messages go to the same inbox as in-app suggestions. The key below is the public,
+  // publishable key; row-level security only lets a visitor add a message, never read one.
+  const db = window.supabase.createClient("https://atohfjlzniakkrnfzhhi.supabase.co", "sb_publishable_haqYXXNAtwyVB-yKKR9SDw_jDNpAUvC", {
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
+  const form = document.getElementById("contact");
+  const status = document.getElementById("status");
+  const send = document.getElementById("send");
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const email = form.email.value.trim();
+    const topic = form.topic.options[form.topic.selectedIndex].text;
+    const text = form.message.value.trim();
+    if (!email || text.length < 10) return;
+    send.disabled = true;
+    status.textContent = "Sending…";
+    try {
+      const session = await db.auth.signInAnonymously();
+      if (session.error) throw session.error;
+      const message = ("[Support] " + topic + "\nReply to: " + email + "\n\n" + text).slice(0, 1000);
+      const { error } = await db.from("suggestions").insert({
+        kind: form.topic.value === "idea" ? "idea" : "problem",
+        message,
+        app_version: "support-page",
+      });
+      if (error) throw error;
+      form.reset();
+      status.textContent = "Thank you. Your message is on its way, and we will reply by email.";
+    } catch (e) {
+      status.textContent = "Sorry, that didn't send. Please check your connection and try again.";
+    } finally {
+      send.disabled = false;
+      await db.auth.signOut().catch(() => {});
+    }
+  });
+</script>
+</body>
+</html>
